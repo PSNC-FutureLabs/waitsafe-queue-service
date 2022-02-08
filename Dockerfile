@@ -29,7 +29,7 @@ USER node
 # /srv is for site-specific data which is served by this system
 WORKDIR /srv/app
 
-COPY --from=build --chown=node:node /srv/app/package*.json .
+COPY --from=build --chown=node:node /srv/app/package*.json ./
 COPY --from=build --chown=node:node /srv/app/node_modules/ ./node_modules/
 COPY --from=build --chown=node:node /srv/app/dist/ ./dist/
 
