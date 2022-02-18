@@ -15,10 +15,36 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/cards/{cardNumber} (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/cards/AK58GD')
       .expect(200)
-      .expect('Hello World!');
+      .expect('Content-Type', /json/)
+      .expect({
+        icon: 'green-monkey',
+        number: 'AK58GD',
+        hospitalId: 'szpital-1',
+        _links: {
+          self: {
+            href: '/card/AK58GD',
+          },
+          visit: {
+            href: '/card/AK58GD/visit',
+          },
+        },
+        _embedded: {
+          visit: {
+            estimatedTime: '11:55',
+            _links: {
+              card: {
+                href: '/card/AK58GD',
+              },
+              queue: {
+                href: '/hospitals/szpital-1/queues/kolejka-1',
+              },
+            },
+          },
+        },
+      });
   });
 });
