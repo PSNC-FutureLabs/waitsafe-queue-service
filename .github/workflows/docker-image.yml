@@ -1,0 +1,19 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [ deployment ]
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag waitsafe-queue-service:latest
+
+      - name: Run latest
+        run: docker-compose -f ../../../../waitsafe-deployment/docker-compose.yml up -d
