@@ -23,7 +23,6 @@ describe('AppController (e2e)', () => {
       .expect({
         icon: 'green-monkey',
         number: 'AK58GD',
-        hospitalId: 'szpital-1',
         _links: {
           self: {
             href: '/card/AK58GD',
