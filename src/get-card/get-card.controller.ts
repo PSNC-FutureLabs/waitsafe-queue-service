@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { GetCardService } from './get-card.service';
 
 type Link = string; /** eg /card/ABCD1234 */
@@ -36,8 +36,10 @@ export class GetCardController {
   constructor(private readonly getCardService: GetCardService) {}
 
   @Get('/cards/:cardNumber')
-  async getCard(cardNumber: string): Promise<CardResponse> {
-    const [card, visit] = await this.getCardService.getCardWithVisit(
+  async getCard(
+    @Param('cardNumber') cardNumber: string,
+  ): Promise<CardResponse> {
+    const [card, visit] = await this.getCardService.getCardWithActiveVisit(
       cardNumber,
     );
 
@@ -62,7 +64,7 @@ export class GetCardController {
                   href: `/cards/${visit.cardNumber}`,
                 },
                 queue: {
-                  href: `/queues/${visit.queueId}`,
+                  href: `/hospitals/${visit.hospitalId}/queues/${visit.queueId}`,
                 },
               },
             }
