@@ -19,6 +19,17 @@ async function main() {
   });
 
   console.log({ card });
+
+  const scan = await prisma.scan.createMany({
+    data: [
+      {
+        body: JSON.stringify({ valid: 'json' }),
+      },
+      { body: 'plain text' },
+    ],
+  });
+
+  console.log(scan);
 }
 
 main()
