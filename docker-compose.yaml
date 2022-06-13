@@ -1,18 +1,34 @@
 version: '3.5'
 services:
+  waitsafe-queue-service:
+    restart: always
+    image: waitsafe-queue-service:latest
+    ports:
+      - 8080:3000
   postgres:
-    image: postgres:10-alpine
+    restart: always
+    image: postgres:14-alpine3.15
     environment:
       POSTGRES_PASSWORD: randompassword
       POSTGRES_USER: johndoe
       POSTGRES_DB: mydb
     ports:
       - 5432:5432
+    volumes:
+      - postgresql-datavolume:/var/lib/postgresql/data
   rabbitmq:
-    image: rabbitmq:3-management-alpine
+    restart: always
+    image: rabbitmq:management
     ports:
-        - 5672:5672
-        - 15672:15672
+      - 5671:5671
+      - 5672:5672
+      - 9999:15672
     environment:
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: admin
+    volumes:
+      - rabbit-mq-datavolume:/var/lib/rabbitmq/mnesia/rabbit@rabbit-mq
+
+volumes:
+  postgresql-datavolume:
+  rabbit-mq-datavolume:
