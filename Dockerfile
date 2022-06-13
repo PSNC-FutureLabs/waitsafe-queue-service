@@ -30,6 +30,7 @@ WORKDIR /srv/app
 COPY --from=build --chown=node:node /srv/app/package*.json ./
 COPY --from=build --chown=node:node /srv/app/node_modules/ ./node_modules/
 COPY --from=build --chown=node:node /srv/app/dist/ ./dist/
+COPY --from=build --chown=node:node /srv/app/prisma/ ./prisma/
 
 ENV NODE_ENV production
 
