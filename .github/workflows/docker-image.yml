@@ -15,9 +15,5 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag waitsafe-queue-service:latest
 
-      - name: Stop old container
-        run: docker kill waitsafe-queue-service
-        continue-on-error: true
-
       - name: Run latest
-        run: docker run -d --rm -p 8080:3000 --name waitsafe-queue-service waitsafe-queue-service:latest
+        run: docker-compose -f ../../../../waitsafe-deployment/docker-compose.yml up -d
