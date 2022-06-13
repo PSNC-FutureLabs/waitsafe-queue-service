@@ -33,4 +33,4 @@ COPY --from=build --chown=node:node /srv/app/dist/ ./dist/
 
 ENV NODE_ENV production
 
-CMD ["node", "dist/main.js"]
+CMD ["npm", "run", "start:prod"]
