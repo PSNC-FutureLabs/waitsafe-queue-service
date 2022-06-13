@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  postgres:
+    image: postgres:10-alpine
+    environment:
+      POSTGRES_PASSWORD: randompassword
+      POSTGRES_USER: johndoe
+      POSTGRES_DB: mydb
+    ports:
+      - 5432:5432
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+        - 5672:5672
+        - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin

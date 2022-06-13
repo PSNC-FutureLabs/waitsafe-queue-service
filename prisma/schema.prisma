@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "darwin"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Card {
+  number  String  @unique
+  icon    String
+  visits  Visit[]
+}
+
+model Visit {
+  id             Int       @id @default(autoincrement())
+  estimatedTime  DateTime
+  card           Card      @relation(fields: [cardNumber], references: [number])
+  cardNumber     String
+  hospitalId     String
+  queueId        String
+}
+
+model Scan {
+  id         BigInt    @db.BigInt @id @default(autoincrement())
+  updatedAt  DateTime  @updatedAt
+
+  // It will be added when we have to format of the message set up
+  // card           Card      @relation(fields: [cardNumber], references: [number])
+  // cardNumber     String
+
+  // It will probably change to Json type later when we have some integration done
+  body       String
+}

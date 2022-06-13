@@ -2,25 +2,34 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+API and card scans processor that supports waitsafe application
 
 ## Installation
 
 ```bash
-$ npm install
+# start database and queue in the background
+docker compose up -d
+
+# install the dependencies
+npm install
 ```
+
+It is going to install all dependencies and run script that sets up database
 
 ## Running the app
 
 ```bash
+# start database and queue in the background
+docker compose up -d
+
 # development
-$ npm run start
+npm run start
 
 # watch mode
-$ npm run start:dev
+npm run start:dev
 
 # production mode
-$ npm run start:prod
+npm run start:prod
 ```
 
 ## Test
