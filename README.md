@@ -4,6 +4,11 @@
 
 API and card scans processor that supports waitsafe application
 
+## Prerequisites
+
+NPM version 8
+NODE version 16
+
 ## Installation
 
 ```bash
@@ -22,13 +27,19 @@ It is going to install all dependencies and run script that sets up database
 # start database and queue in the background
 docker compose up -d
 
-# development
+# and run migrations + seed
+npm run prepare:dev
+
+# then start development
 npm run start
 
-# watch mode
+# or in watch mode
 npm run start:dev
 
-# production mode
+# or in debug mode
+npm run start:debug
+
+# or in production mode
 npm run start:prod
 ```
 

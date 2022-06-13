@@ -12,8 +12,6 @@ COPY . /srv/app
 # /srv is for site-specific data which is served by this system
 WORKDIR /srv/app
 
-ENV NODE_ENV production
-
 RUN npm ci \
     && npm run build \
     && npm prune --production
