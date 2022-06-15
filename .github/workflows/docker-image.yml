@@ -15,4 +15,4 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag waitsafe-queue-service:latest
       - name: Run latest
-        run: docker-compose -f ../../docker-compose.yaml up -d
+        run: docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up -d

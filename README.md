@@ -12,14 +12,9 @@ NODE version 16
 ## Installation
 
 ```bash
-# start database and queue in the background
-docker compose up -d
-
 # install the dependencies
 npm install
 ```
-
-It is going to install all dependencies and run script that sets up database
 
 ## Running the app
 
@@ -47,11 +42,11 @@ npm run start:prod
 
 ```bash
 # unit tests
-$ npm run test
+npm run test
 
 # e2e tests
-$ npm run test:e2e
+npm run test:e2e
 
 # test coverage
-$ npm run test:cov
+npm run test:cov
 ```
