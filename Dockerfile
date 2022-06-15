@@ -16,7 +16,10 @@ RUN npm ci \
     && npm run build \
     && npm prune --production
 
-FROM node:16-alpine
+FROM node:16
+
+# required by prisma db engine
+RUN apt-get -qy update && apt-get -qy install openssl
 
 # create and chown our workdir
 RUN mkdir /srv/app && chown node:node /srv/app
@@ -31,6 +34,7 @@ COPY --from=build --chown=node:node /srv/app/package*.json ./
 COPY --from=build --chown=node:node /srv/app/node_modules/ ./node_modules/
 COPY --from=build --chown=node:node /srv/app/dist/ ./dist/
 COPY --from=build --chown=node:node /srv/app/prisma/ ./prisma/
+COPY --from=build --chown=node:node /srv/app/.env.prod ./.env
 
 ENV NODE_ENV production
 

@@ -1,0 +1,10 @@
+version: '3.5'
+services:
+  waitsafe-queue-service:
+    restart: always
+    image: waitsafe-queue-service:latest
+    ports:
+      - 8080:3000
+    depends_on:
+      - rabbitmq
+      - postgres
