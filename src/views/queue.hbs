@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ queueName }}</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>{{ hospitalName }}</h1>
+  <h2>{{ queueName }}</h2>
+  <ul>
+    {{#each visits}}
+    {{#with this}}
+    <li>
+      <img src="/{{card.icon}}.svg" alt="{{card.icon}}" width="24"/>
+      <strong>{{ card.number }}</strong>
+      <span>{{ estimatedTime }}</span>
+    </li>
+    {{/with}}
+    {{/each}}
+  </ul>
+</body>
+</html>
