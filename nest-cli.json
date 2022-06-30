@@ -3,7 +3,7 @@
   "sourceRoot": "src",
   "compilerOptions": {
     "webpack": false,
-    "assets": ["**/*.hbs", "**/*.css", "**/*.svg"],
+    "assets": ["**/*.hbs", "**/*.css", "**/*.svg", "**/*.png"],
     "watchAssets": true
   }
 }
