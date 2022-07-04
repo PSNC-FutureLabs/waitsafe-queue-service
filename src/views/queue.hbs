@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ queueName }}</title>
-  <link rel="stylesheet" href="/main-queue-page.css">
+  <title>{{ queueName }} | {{ hospitalName }}</title>
+  <link rel="stylesheet" href="/css/main-queue-page.css">
 </head>
 
 <body>
 
- <h1>{{ hospitalName }}</h1>
-  <h2>{{ queueName }}</h2>
+ <!--<h1>{{ hospitalName }}</h1>
+  <h2>{{ queueName }}</h2>-->
 <!--  <ul>
     {{#each visits}}
     {{#with this}}
@@ -23,67 +23,69 @@
     {{/with}}
     {{/each}}
   </ul>-->
-<header>
-        <div class="logo">
-            <a href="#"><img src="/assets/LOGO.png" alt="logo"></a>
+
+
+<div class="main-content">
+
+    <div class="cards-container">
+
+    
+        <!--<h1>{{ hospitalName }}</h1>-->
+        <div class="name-header">
+            <h2>{{ queueName }}</h2>
         </div>
-    <div class="right-bar">
-        <div class="navbar">
-            <a href="#"><p>KOLEJKI</p></a>
-            <a href="#" class="logout-but"><img src="/assets/sign-out-24.png" alt="logout"><p>Wyloguj się</p></a>
-        </div>
+        
+
+        <section class="cards">
+
+            <ol id="card-list">
+                {{#each visits}}
+                {{#with this}}
+                <li> 
+                <img src="/{{card.icon}}.svg" alt="{{card.icon}}" width="24"/>
+                <strong>{{ card.number }}</strong>
+                <span>{{ estimatedTime }}</span>
+                </li>
+                {{/with}}
+                {{/each}}
+<!--
+                {{#each visits}}
+                {{#with this}}
+                <li> 
+                <img src="/{{card.icon}}.svg" alt="{{card.icon}}" width="24"/>
+                <strong>{{ card.number }}</strong>
+                <span>{{ estimatedTime }}</span>
+                </li>
+                {{/with}}
+                {{/each}}-->
+            </ol>
+        </section>
     </div>
-</header>
+    <section class="sidebar">
+        <p>Osób w kolejce: </p>
+        <p id="person-counter">1 osoba</p>
+        <p>Średnia długośc wizyty: </p>
+        <p>1 minuta</p>
 
-<section class="main-content">
-    {{#each visits}}
-    {{#with this}}
-      <element class="queue-element">
-          <div class="queue-name">
-              <div>{{ queueName }}</div>
-              
-          </div>
-          <div class="queue-length">
-              <div class="vl"></div>
-              <div>{{ card.number }}</div>
-          </div>
-          
-          <div class="queue-duration">
-              <div class="vl"></div>
-              <div>{{ estimatedTime }}</div>
-              <img src="/{{card.icon}}.svg" alt="{{card.icon}}" width="24"/>
-          </div>
-          
-          <div class="queue-open">
-              <div class="queue-info">&#x1F6C8;</div>
-              <button>OTWÓRZ</button>
-          </div>
-      </element>
-    {{/with}}
-    {{/each}}
+        <!-- qr code -->
+
+        <p>Zeskanuj kod QR lub odwiedź WIATSAFE.COM/ABCDEF
+        <br>aby uzyskać podgląd kolejki w telefonie</p>
+
+    </section>
 
     
-
-    
-</section>
+</div>
 
 <footer>
-  <p>Footer</p>
+  <p>WYŚLIJ SMS Z NUMEREM KARTY WAIT SAFE NA NUMER 000 000 000, ŻEBY DOSTAĆ SMS GDY ZBLIŻY SIĘ CZAS TWOJEGO WEJŚCIA DO GABINETU</p>
 </footer>
 
 </body>
 
-<script>
-    const my_element1 = document.querySelector('.main-content');
 
-    const element = 
-        "<element class='queue-element'><div class='queue-name'><div>Nazwa kolejki #</div></div><div class='queue-length'><div class='vl'></div><div>##</div></div><div class='queue-duration'><div class='vl'></div><div>##</div></div><div class='queue-open'><div class='queue-info'>&#x1F6C8;</div><button>OTWÓRZ</button></div></element>";
+ <script src="/js/main-queue-page-script.js"></script> 
 
-    for(var i = 0; i< 20; ++i){    
-        my_element1.insertAdjacentHTML('beforeend',element);
-    }
-
-</script>
 
 
 

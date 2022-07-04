@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ queueName }}</title>
+  <link rel="stylesheet" href="/css/main-queue-page.css">
+</head>
+
+<body>
+
+ <h1>{{ hospitalName }}</h1>
+  <h2>{{ queueName }}</h2>
+<!--  <ul>
+    {{#each visits}}
+    {{#with this}}
+    <li> 
+      <img src="/{{card.icon}}.svg" alt="{{card.icon}}" width="24"/>
+      <strong>{{ card.number }}</strong>
+      <span>{{ estimatedTime }}</span>
+    </li>
+    {{/with}}
+    {{/each}}
+  </ul>-->
+<header>
+        <div class="logo">
+            <a href="#"><img src="/assets/LOGO.png" alt="logo"></a>
+        </div>
+    <div class="right-bar">
+        <div class="navbar">
+            <a href="#"><p>KOLEJKI</p></a>
+            <a href="#" class="logout-but"><img src="/assets/sign-out-24.png" alt="logout"><p>Wyloguj się</p></a>
+        </div>
+    </div>
+</header>
+
+<section class="main-content">
+    {{#each visits}}
+    {{#with this}}
+      <element class="queue-element">
+          <div class="queue-name">
+              <div>{{ queueName }}</div>
+              
+          </div>
+          <div class="queue-length">
+              <div class="vl"></div>
+              <div>{{ card.number }}</div>
+          </div>
+          
+          <div class="queue-duration">
+              <div class="vl"></div>
+              <div>{{ estimatedTime }}</div>
+              <img src="/{{card.icon}}.svg" alt="{{card.icon}}" width="24"/>
+          </div>
+          
+          <div class="queue-open">
+              <div class="queue-info">&#x1F6C8;</div>
+              <button>OTWÓRZ</button>
+          </div>
+      </element>
+    {{/with}}
+    {{/each}}
+
+    
+
+    
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+
+</body>
+
+
+ <script src="/js/main-queue-page.js"></script> 
+
+
+
+
+</html>

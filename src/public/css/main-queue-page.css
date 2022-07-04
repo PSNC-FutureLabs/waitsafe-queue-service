@@ -1,0 +1,179 @@
+:root{
+    --ws-navy-blue-100: #1F4D93;
+    --ws-gun-powder: #000000;
+    --ws-blue-trim: #D7EEF3;
+    --ws-white: #ffffff;
+    --text-color: #ffffff;
+    --ws-dark-100: #0A1331;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  font-size: 3vh;
+}
+
+
+
+
+.main-content{
+    min-height: 80vh;
+    background-color: var(--ws-blue-trim);
+    display: flex;
+}
+
+div.name-header {
+    height: 10vh;
+    margin: 0 2% 0 2%;
+    color: var(--ws-navy-blue-100);
+}
+
+div.cards-container {
+    flex: 70%;
+}
+
+section.sidebar {
+    flex: 30%;
+    background-color: var(--ws-white);
+}
+
+section.cards{
+    height: 70vh;
+    position: relative;
+}
+
+section.cards ol {
+    width: 100%;
+    height: 100%;
+
+    list-style: decimal;
+    list-style-position: inside;
+    color: white;
+    position: absolute;
+    padding: 0;
+    margin: 0 2% 0 2%;
+
+    border:1px solid black;
+        -moz-column-count: 2;
+        -moz-column-gap: 1px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 1px;
+        column-count: 2;
+        column-gap: 1px;
+    
+        column-fill: auto;
+}
+
+section.cards ol li{
+    float: left;
+    width: 90%;
+    background-color: var(--ws-white);
+    border-radius: 0.2em;
+    padding: 0.6em;
+    margin: 0 0 0.5em 0;
+    color: var(--ws-dark-100);
+}
+
+section.cards li img{
+    margin-left: 0.2em;
+}
+
+section.cards li img,
+section.cards li strong,
+section.cards li span{
+    margin-left: 1em;
+}
+
+.main-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.queue-element{
+    background-color: var(--ws-white);
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    height: 80px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.queue-element *{
+
+}
+
+
+
+.queue-element .queue-name{
+    
+}
+
+.queue-element .queue-open,
+.queue-element .queue-duration,
+.queue-element .queue-length
+{
+    display: flex;
+    align-items: center;
+}
+
+.queue-element .queue-length{
+}
+
+.queue-element .queue-duration{
+}
+
+.queue-element .queue-open{
+    
+}
+
+.queue-element .queue-info{
+    font-size: 30px;
+    color: #555555ad;
+    margin-right: 10px;
+}
+
+.queue-element .queue-open button{
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    border: 2px solid #555555;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.queue-element .vl {
+    border-left:1px solid #16222c; 
+    height:40px;
+    margin-right: 10px;
+
+}
+
+footer {
+    background-color: var(--ws-navy-blue-100);
+    text-align: left;
+    color: white;
+    font-weight: bold;
+    height: 20vh;
+    padding: 10px 2% 10px 2%;
+}
+
+
+@media (max-width: 600px) {
+  
+}
