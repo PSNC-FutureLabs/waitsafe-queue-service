@@ -20,16 +20,32 @@ function init(){
 
 
 
-function startCounter(){
+function startCounter()
+{
     var target = document.getElementById("person-counter");
 
     var len = document.getElementById("card-list").getElementsByTagName("li").length
 
+    counterVariationBCaseUpdate(target, len);
 
+    var link = document.getElementById("waitsafe-link").innerHTML;
 
-
-    target.innerHTML = len + " osób";
+    new QRCode(document.getElementById("qrcode"), link);
 }
+
+function counterVariationBCaseUpdate(target, len) 
+{
+    if(len === 1) {
+        target.innerHTML = len + '<font class="blue-navy"> osoba</font>';
+    }
+    else if(len >= 2 && len < 10) {
+        target.innerHTML = len + '<font class="blue-navy"> osoby</font>';
+    }
+    else{
+        target.innerHTML = len + '<font class="blue-navy"> osób</font>';
+    }
+}
+
 /*
 document.onreadystatechange = function () {
     if (document.readyState === "interactive") {

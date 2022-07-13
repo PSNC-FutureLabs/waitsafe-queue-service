@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ queueName }} | {{ hospitalName }}</title>
   <link rel="stylesheet" href="/css/main-queue-page.css">
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+
 </head>
 
 <body>
@@ -48,30 +51,32 @@
                 </li>
                 {{/with}}
                 {{/each}}
-<!--
-                {{#each visits}}
-                {{#with this}}
-                <li> 
-                <img src="/{{card.icon}}.svg" alt="{{card.icon}}" width="24"/>
-                <strong>{{ card.number }}</strong>
-                <span>{{ estimatedTime }}</span>
-                </li>
-                {{/with}}
-                {{/each}}-->
+
             </ol>
         </section>
     </div>
     <section class="sidebar">
-        <p>Osób w kolejce: </p>
-        <p id="person-counter">1 osoba</p>
-        <p>Średnia długośc wizyty: </p>
-        <p>1 minuta</p>
+        <p style="text-transform: uppercase;">Osób w kolejce: </p>
+        <p id="person-counter">- <font class="blue-navy">osób</font></p>
+        <p style="text-transform: uppercase;">Średnia długość wizyty: </p>
+        <p>- <font class="blue-navy">minut</font></p>
 
         <!-- qr code -->
+        <img>
 
-        <p>Zeskanuj kod QR lub odwiedź WIATSAFE.COM/ABCDEF
-        <br>aby uzyskać podgląd kolejki w telefonie</p>
+            <div id="qrcode"></div>
+            <script type="text/javascript">
+           
+            </script>
+        </img>
+        <!-- end qr code -->
 
+        <!-- link section -->
+        <p>Zeskanuj kod QR lub odwiedź</p> 
+        <p id="waitsafe-link">WIATSAFE.COM/ABCDEF</p>
+        <!-- <br> -->
+        <p>aby uzyskać podgląd kolejki w telefonie</p>
+        <!-- end link section -->
     </section>
 
     

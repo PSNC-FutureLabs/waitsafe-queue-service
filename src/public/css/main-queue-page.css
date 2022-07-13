@@ -41,7 +41,19 @@ div.cards-container {
 section.sidebar {
     flex: 30%;
     background-color: var(--ws-white);
+    padding: 0 0.5em;
 }
+
+section.sidebar p{
+    font-weight: bold;
+    letter-spacing: 0.001em;
+}
+
+.blue-navy{
+    color: var(--ws-navy-blue-100);
+}
+
+
 
 section.cards{
     height: 70vh;
@@ -107,6 +119,9 @@ section.cards li span{
     align-items: center;
     margin-bottom: 10px;
 }
+
+
+
 
 .queue-element *{
 
